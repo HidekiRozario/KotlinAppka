@@ -105,7 +105,8 @@ class MainActivity : AppCompatActivity() {
     fun AutoPlay(){
         PrimeTextView.text = cookies.toString()
         cookies++
-            Timer("SettingUp", false).schedule(500){
+
+        Timer("SettingUp", false).schedule(500){
             AutoPlay()
         }
     }
