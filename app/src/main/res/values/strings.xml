@@ -12,4 +12,6 @@
     <string name="zadejte_cislo">Zadejte cislo</string>
     <string name="btn_1text">Is this Prime number?!</string>
     <string name="play">Play</string>
+    <string name="clicker">Clicker</string>
+    <string name="timer">Timer</string>
 </resources>

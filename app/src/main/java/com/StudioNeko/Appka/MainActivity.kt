@@ -22,7 +22,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val PrimeTextSize = 20f
     private val NonPrimeTextSize = 11f
+
     private var cookies = 1
+
+    private var ClickerUpgradeLevel = 1
+    private var ClickerCost = 100
+
+    private var TimerUpgradeLevel = 1
+    private var TimerCost = 500
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +44,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_2.setOnClickListener {
-            cookies++
+            cookies += ClickerUpgradeLevel
+        }
+        btn_3.setOnClickListener {
+            ClickerUpgrade()
+        }
+        btn_4.setOnClickListener {
+            TimerUpgrade()
         }
         AutoPlay()
     }
@@ -104,10 +117,24 @@ class MainActivity : AppCompatActivity() {
 
     fun AutoPlay(){
         PrimeTextView.text = cookies.toString()
-        cookies++
+        cookies += TimerUpgradeLevel
 
         Timer("SettingUp", false).schedule(500){
             AutoPlay()
+        }
+    }
+
+    fun ClickerUpgrade(){
+        if(cookies >= 100 * ClickerUpgradeLevel) {
+            cookies -= 100 * ClickerUpgradeLevel
+            ClickerUpgradeLevel++
+        }
+    }
+
+    fun TimerUpgrade(){
+        if(cookies >= 500 * TimerUpgradeLevel) {
+            cookies -= 500 * TimerUpgradeLevel
+            TimerUpgradeLevel++
         }
     }
 }
